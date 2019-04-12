@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+
+const Button = styled.button`
+	width: 100%;
+	border-radius: 32px;
+	background-color: green;
+	color: white;
+	font-size: 14px;
+	min-height: 40px;
+	padding: 16px 24px;
+	cursor: pointer;
+	outline: none;
+	border: none;
+`
+
+const ButtonContainer = styled.div`
+	display: flex;
+`
 
 class App extends Component {
   render() {
@@ -19,6 +37,9 @@ class App extends Component {
           >
             Learn React
           </a>
+					<ButtonContainer>
+						<Button onClick={() => alert('I was clicked')}>Click Me</Button>
+					</ButtonContainer>
         </header>
       </div>
     );
