@@ -12,13 +12,6 @@ const BackgroundContainer = styled.div`
 	background: rgb(19,45,79);
 	background: linear-gradient(180deg, rgba(19,45,79,1) 27%, rgba(16,14,47,1) 100%);
 `
-const ImageContainer = styled.div`
-	display: flex;
-	img {
-		height: 60vh;
-		width: auto;
-	}
-`
 const TopNaviagtion = styled.div`
 	display: flex;
 	padding: 8px;
@@ -42,8 +35,19 @@ const Link = styled.a`
 	padding: 16px;
     text-decoration: none;
 `
+const ImageContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	img {
+		height: 80vh;
+		width: auto;
+	}
+`
 const Wrapper = styled.div`
 	padding: 16px;
+	display: flex;
+	flex: 1;
+	justify-content: center;
 `
 
 export default function PortfolioContainer () {
@@ -52,7 +56,9 @@ export default function PortfolioContainer () {
 	{ title: 'contact', link: '#'}]
 
 	const images = [{ src: WelcomeScreen, alt: 'Welcome Screen' },
-	{ src: LoginScreen, alt: 'Login Screen' }]
+	{ src: LoginScreen, alt: 'Login Screen' },
+	{src: WelcomeScreen, alt: 'Home Screen'},
+	{src: LoginScreen, alt: 'Other Screen'}]
 	return (
 		<BackgroundContainer>
 			<TopNaviagtion>
