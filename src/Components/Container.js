@@ -2,24 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import color from '../styles/color';
 import Footer from './Footer';
-import WelcomeScreen from '../assets/Welcome_Screen.png'
-import LoginScreen from '../assets/Login_Screen.png'
+import { links, projectLinks } from '../utils/data'
 
 const BackgroundContainer = styled.div`
 	top: 0;
 	width: 100%;
 	height: 100vh;
-	background: rgb(19,45,79);
-	background: linear-gradient(180deg, rgba(19,45,79,1) 27%, rgba(16,14,47,1) 100%);
+	background: ${color.white};
+	overflow: visible;
+	@media (max-width: 900px) {
+		height: 100%;
+	}
 `
 const TopNaviagtion = styled.div`
 	display: flex;
 	padding: 8px;
+	z-index: 2;
+	margin-bottom: 24px;
 `
 const Text = styled.p`
 	margin-block-start: 0;
     margin-block-end: 0;
-	color: ${color.white};
+	color: ${color.default};
 `
 const TextContainerLeft = styled.div`
 	display: flex;
@@ -35,30 +39,64 @@ const Link = styled.a`
 	padding: 16px;
     text-decoration: none;
 `
-const ImageContainer = styled.div`
-	display: flex;
-	justify-content: space-around;
-	img {
-		height: 80vh;
-		width: auto;
+const TextContainer = styled.div`
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 9;
+	display: block;
+	width: 100%;
+	height: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	@media (max-width: 900px) {
+		position: relative;
 	}
 `
-const Wrapper = styled.div`
-	padding: 16px;
-	display: flex;
-	flex: 1;
-	justify-content: center;
+const ProjectLink = styled.a`
+	position: static;
+	left: 0%;
+	top: 0%;
+	z-index: 1;
+	width: 25%;
+	padding-right: 0px;
+	float: left;
+	clear: none;
+	font-family: Circularpro, sans-serif;
+	color: ${color.default};
+	font-size: 30px;
+	line-height: 5vmin;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+	@media (max-width: 900px) {
+		width: 100%
+		padding: 40px 0px;
+	}
+`
+const ProjectSpan = styled.span`
+	position: static;
+	left: 50%;
+	top: 39%;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Circularpro book', sans-serif;
+	color: ${color.default};
+	font-size: 10px;
+	line-height: 20px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 `
 
 export default function PortfolioContainer () {
-	const links = [{ title: 'portfolio', link: '#' },
-	{ title: 'about', link: '#' },
-	{ title: 'contact', link: '#'}]
 
-	const images = [{ src: WelcomeScreen, alt: 'Welcome Screen' },
-	{ src: LoginScreen, alt: 'Login Screen' },
-	{src: WelcomeScreen, alt: 'Home Screen'},
-	{src: LoginScreen, alt: 'Other Screen'}]
+	const viewHeight = window.innerHeight
+	console.log(viewHeight)
 	return (
 		<BackgroundContainer>
 			<TopNaviagtion>
@@ -73,13 +111,25 @@ export default function PortfolioContainer () {
 					}
 				</TextContainerRight>
 			</TopNaviagtion>
-			<ImageContainer>
-				{
-					images.map(function (item, index){
-						return 	<Wrapper><img key={index} src={item.src} alt={item.alt} /></Wrapper>
-					})
-				}
-			</ImageContainer>
+			<TextContainer>
+					{
+						projectLinks.map(function (item, index){
+							return (
+								<ProjectLink key={index} href={item.link}>
+									<Text>
+										{item.name}
+									</Text>
+									<ProjectSpan>
+										<Text>
+											{item.type}
+										</Text>
+									</ProjectSpan>
+								</ProjectLink>
+							)
+						})
+					}
+			</TextContainer>
+
 			<Footer />
 		</BackgroundContainer>
 	)

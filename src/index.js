@@ -2,20 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Container from './Components/Container'
+import Container from './Components/Container';
 
-// const NameContext = React.createContext();
-
-const App = () => {
+const App = (links, images) => {
   return (
-    // <NameContext.Provider value={'Galina'}>
-    //   <div className="App">
-    //     <NameContext.Consumer>
-    //       {value => <h1>Hello! My Name is {value}!</h1>}
-    //     </NameContext.Consumer>
-    //   </div>
-	// </NameContext.Provider>
-	<Container />
+		<Container images={images} links={links} />
   )
 }
 ReactDOM.render(<App />, document.getElementById('root'));

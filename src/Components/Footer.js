@@ -6,11 +6,13 @@ const FooterContainer = styled.footer`
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	display: flex;
+	background-color: ${color.white};
 `
 const Text = styled.p`
 	margin-block-start: 0;
     margin-block-end: 0;
-	color: ${color.white};
+	color: ${color.default};
 `
 const TextContainer = styled.div`
 	display: flex;
