@@ -12,7 +12,7 @@ export const images = [{ src: WelcomeScreen, alt: 'Welcome Screen' },
 
 export const projectLinks = [{ name: 'Beer App', link: '#', type: 'React Native Mobile App' },
 	{ name: 'First Website', link: 'http://verdantshades.com/', type: 'HTML, CSS, JS, JQuery' },
-	{ name: 'Wireframes', link: '#', type: 'Figma'},
+	{ name: 'Beer App Wireframes', link: 'https://www.figma.com/file/ZCkZ6GYMHnaB5prjiTNJXcBe/Beer-App?node-id=2%3A7', type: 'Figma'},
 	{ name: 'Let\'s Collaborate', link: 'https://github.com/Geccles', type: 'This could be us'}]
 
 export default {images, links, projectLinks}
